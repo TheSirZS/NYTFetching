@@ -70,9 +70,11 @@ export const Movie: React.FC<MovieProps> = ({route, navigation}) => {
   return (
     <Container scrollEnabled>
       <FadeInImage style={styles.banner} source={{uri: movie.multimedia.src}} />
-      <View style={{...styles.container, ...styles.vertical}}>
+      <View style={styles.container}>
         {Object.keys(onCreateContent()).map((key, i) => (
-          <Section key={i}>
+          <Section
+            key={i}
+            divider={i !== Object.keys(onCreateContent()).length - 1}>
             {key === 'url' ? (
               <Button
                 text={
